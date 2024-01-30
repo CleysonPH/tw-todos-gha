@@ -4,6 +4,10 @@ import { TodoRepository } from '../todo-repository';
 
 export class PrismaTodoRepository implements TodoRepository {
 
+  async update(todo: Todo, id: number): Promise<Todo | null> {
+    return await prisma.todo.update({ where: { id }, data: todo });
+  }
+
   async getAll(): Promise<Todo[]> {
     return await prisma.todo.findMany();
   }

@@ -55,4 +55,24 @@ describe('InMemoryTodoRepository (Unit)', () => {
     expect(sut.delete(1)).resolves.toBeUndefined();
     expect(sut.getById(1)).resolves.toBeNull();
   });
+
+  it('should be able to update a todo', () => {
+    const todo = {
+      id: 1,
+      title: 'Todo 1 Edited',
+      description: 'Todo 1 description edited',
+      done: true
+    };
+    expect(sut.update(todo, 1)).resolves.toEqual(todo);
+  });
+
+  it('should be able to return null when todo is not found', () => {
+    const todo = {
+      id: 4,
+      title: 'Todo 1 Edited',
+      description: 'Todo 1 description edited',
+      done: true
+    };
+    expect(sut.update(todo, 4)).resolves.toBeNull();
+  });
 });

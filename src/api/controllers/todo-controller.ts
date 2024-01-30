@@ -56,4 +56,17 @@ export class TodoController {
     reply.code(204).send();
   }
 
+  static async setTodoHasDone(request: FastifyRequest, reply: FastifyReply) {
+    const paramSchema = z.object({
+      id: z.coerce.number().int().positive()
+    });
+
+    const { id } = paramSchema.parse(request.params);
+
+    const usecase = UseCaseFactory.setTodoHasDoneUseCase;
+    await usecase.execute(id);
+
+    reply.code(204).send();
+  }
+
 }
