@@ -57,7 +57,16 @@ export class TodoController {
   }
 
   static async setTodoHasDone(request: FastifyRequest, reply: FastifyReply) {
-    throw new Error('Not Implemented');
+    const paramSchema = z.object({
+      id: z.coerce.number().int().positive()
+    });
+
+    const { id } = paramSchema.parse(request.params);
+
+    const usecase = UseCaseFactory.setTodoHasDoneUseCase;
+    await usecase.execute(id);
+
+    reply.code(204).send();
   }
 
 }
