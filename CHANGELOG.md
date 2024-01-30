@@ -1,3 +1,15 @@
+## 0.1.0 (2024-01-30)
+
+### Feat
+
+- implements set todo has done route
+- add route for set todo has done
+- implements SetTodoHasDoneUseCase
+- add set todo has done use case
+- implements update in PrismaTodoRepository
+- implements update on InMemoryTodoRepository
+- add update method in todo repository interface
+
 ## 0.0.5 (2024-01-30)
 
 ### Fix
