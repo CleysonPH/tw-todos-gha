@@ -20,6 +20,10 @@ export class InMemoryTodoRepository implements TodoRepository {
     }
   }
 
+  update(todo: Todo, id: number): Promise<Todo | null> {
+    throw new Error('Method not implemented.');
+  }
+
   getAll(): Promise<Todo[]> {
     return Promise.resolve(this._todos);
   }
