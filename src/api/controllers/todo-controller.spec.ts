@@ -110,7 +110,7 @@ describe('TodoController (e2e)', () => {
       .post('/api/todos')
       .send({
         title: 'Todo 4',
-        describe: 'Todo 4 description'
+        description: 'Todo 4 description'
       });
     const { id } = creationResponse.body;
     const response = await request(app.server)
