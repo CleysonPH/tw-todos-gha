@@ -36,8 +36,8 @@ describe('CreateTodoUseCase (Unit)', () => {
 
   it('should return a todo when a valid todo is provided', async () => {
     const todo = await sut.execute({
-      title: 'Todo 4',
-      description: 'Todo 4 description'
+      title: 'Todo 4 test',
+      description: 'Todo 4 description test'
     });
     expect(todo).toEqual({ ...todo, id: 4, done: false });
   });
