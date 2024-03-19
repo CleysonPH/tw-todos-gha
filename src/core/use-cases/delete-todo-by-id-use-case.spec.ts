@@ -36,12 +36,12 @@ describe('DeleteTodoByIdUseCase (Unit)', () => {
   });
 
   it('should delete a todo when a valid id is provided', async () => {
-    await sut.execute(1);
+    await sut.execute(10);
     expect(await todoRepository.getById(1)).toBeNull();
   });
 
   it('should throw an error when an invalid id is provided', async () => {
     const expectError = TodoNotFoundError;
-    await expect(sut.execute(4)).rejects.toThrow(expectError);
+    await expect(sut.execute(1)).rejects.toThrow(expectError);
   });
 });
